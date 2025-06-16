@@ -574,7 +574,7 @@ ip tunnel add azumi mode sit remote $remote_ip local $local_ip ttl 255 > /dev/nu
 ip link set dev azumi up > /dev/null
  
 # iran initial IP address
-initial_ip="fd1d:fc98:b73e:b481::1/64"
+initial_ip="fd1d:fc98:b73e:c481::1/64"
 ip addr add $initial_ip dev azumi > /dev/null
 
 # additional private IPs-number
@@ -585,7 +585,7 @@ printf "\e[93m╰─────────────────────
 for ((i=1; i<=num_ips; i++))
 do
   ip_suffix=`printf "%x\n" $i`
-  ip_addr="fd1d:fc98:b73e:b48${ip_suffix}::1/64"  > /dev/null
+  ip_addr="fd1d:fc98:b73e:c48${ip_suffix}::1/64"  > /dev/null
   
   # Check kharej
   ip addr show dev azumi | grep -q "$ip_addr"
@@ -600,8 +600,8 @@ done
 	display_notification $'\e[93mAdding commands to private.sh...\e[0m'
     echo "ip tunnel add azumi mode sit remote $remote_ip local $local_ip ttl 255" >> /etc/private.sh
     echo "ip link set dev azumi up" >> /etc/private.sh
-    echo "ip addr add fd1d:fc98:b73e:b481::1/64 dev azumi" >> /etc/private.sh
-        ip_addr="fd1d:fc98:b73e:b48${ip_suffix}::1/64"
+    echo "ip addr add fd1d:fc98:b73e:c481::1/64 dev azumi" >> /etc/private.sh
+        ip_addr="fd1d:fc98:b73e:c48${ip_suffix}::1/64"
         echo "ip addr add $ip_addr dev azumi" >> /etc/private.sh
 
     display_checkmark $'\e[92mPrivate ip added successfully!\e[0m'
@@ -609,7 +609,7 @@ done
 display_notification $'\e[93mAdding cron job for server!\e[0m'
     (crontab -l 2>/dev/null; echo "@reboot /bin/bash /etc/private.sh") | crontab -
 	
-	ping -c 2 fd1d:fc98:b73e:b481::2 | sed "s/.*/\x1b[94m&\x1b[0m/" 
+	ping -c 2 fd1d:fc98:b73e:c481::2 | sed "s/.*/\x1b[94m&\x1b[0m/" 
 	sleep 1
 	display_notification $'\e[93mConfiguring keepalive service..\e[0m'
 
@@ -617,7 +617,7 @@ display_notification $'\e[93mAdding cron job for server!\e[0m'
 script_content='#!/bin/bash
 
 # IPv6 address
-ip_address="fd1d:fc98:b73e:b481::2"
+ip_address="fd1d:fc98:b73e:c481::2"
 
 # maximum number
 max_pings=4
@@ -671,7 +671,7 @@ echo -e "Created \e[93mPrivate IP Addresses \e[92m(Kharej):\e[0m"
 for ((i=1; i<=num_ips; i++))
 do
     ip_suffix=`printf "%x\n" $i`
-    ip_addr="fd1d:fc98:b73e:b48${ip_suffix}::1"
+    ip_addr="fd1d:fc98:b73e:c48${ip_suffix}::1"
     echo "+---------------------------+"
     echo -e "| \e[92m$ip_addr    \e[0m|"
 done
@@ -705,7 +705,7 @@ ip tunnel add azumi mode sit remote $remote_ip local $local_ip ttl 255 > /dev/nu
 ip link set dev azumi up > /dev/null
  
 # iran initial IP address
-initial_ip="fd1d:fc98:b73e:b481::2/64"
+initial_ip="fd1d:fc98:b73e:c481::2/64"
 ip addr add $initial_ip dev azumi > /dev/null
 
 # additional private IPs-number
@@ -715,7 +715,7 @@ printf "\e[93m╰─────────────────────
 for ((i=1; i<=num_ips; i++))
 do
   ip_suffix=`printf "%x\n" $i`
-  ip_addr="fd1d:fc98:b73e:b48${ip_suffix}::2/64" > /dev/null
+  ip_addr="fd1d:fc98:b73e:c48${ip_suffix}::2/64" > /dev/null
   
   # Check iran
   ip addr show dev azumi | grep -q "$ip_addr"
@@ -729,8 +729,8 @@ done
     echo -e "\e[93mAdding commands to private.sh...\e[0m"
     echo "ip tunnel add azumi mode sit remote $remote_ip local $local_ip ttl 255" >> /etc/private.sh
     echo "ip link set dev azumi up" >> /etc/private.sh
-    echo "ip addr add fd1d:fc98:b73e:b481::2/64 dev azumi" >> /etc/private.sh
-        ip_addr="fd1d:fc98:b73e:b48${ip_suffix}::2/64"
+    echo "ip addr add fd1d:fc98:b73e:c481::2/64 dev azumi" >> /etc/private.sh
+        ip_addr="fd1d:fc98:b73e:c48${ip_suffix}::2/64"
         echo "ip addr add $ip_addr dev azumi" >> /etc/private.sh
     
     chmod +x /etc/private.sh
@@ -741,7 +741,7 @@ done
     display_notification $'\e[93mAdding cron job for server!\e[0m'
     (crontab -l 2>/dev/null; echo "@reboot /bin/bash /etc/private.sh") | crontab -
 
-	ping -c 2 fd1d:fc98:b73e:b481::1 | sed "s/.*/\x1b[94m&\x1b[0m/" 
+	ping -c 2 fd1d:fc98:b73e:c481::1 | sed "s/.*/\x1b[94m&\x1b[0m/" 
 	sleep 1
 	display_notification $'\e[93mConfiguring keepalive service..\e[0m'
 
@@ -749,7 +749,7 @@ done
 script_content='#!/bin/bash
 
 # iPv6 address
-ip_address="fd1d:fc98:b73e:b481::1"
+ip_address="fd1d:fc98:b73e:c481::1"
 
 
 max_pings=3
@@ -803,7 +803,7 @@ echo -e "Created \e[93mPrivate IP Addresses \e[92m(Iran):\e[0m"
 for ((i=1; i<=num_ips; i++))
 do
     ip_suffix=`printf "%x\n" $i`
-    ip_addr="fd1d:fc98:b73e:b48${ip_suffix}::2"
+    ip_addr="fd1d:fc98:b73e:c48${ip_suffix}::2"
     echo "+---------------------------+"
     echo -e "| \e[92m$ip_addr    \e[0m|"
 done
